@@ -40,6 +40,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 '''Model selection'''
 basis_function = Polynomial(degree=2)
 # basis_function = Fourier(degree=2, n=2, p=2*np.pi, ensemble=True)
+
 '''Default model from documentation'''
 model = FROLS(
     order_selection=True,
