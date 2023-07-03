@@ -17,3 +17,24 @@ repos:
     - commit-msg
   repo: https://github.com/commitizen-tools/commitizen
   rev: v2.32.2
+- hooks:
+  - entry: jupytext --from ipynb --to .md --pre-commit
+    id: jupytext
+    language: python
+    name: jupytext
+    pass_filenames: false
+  repo: local
+- hooks:
+  - entry: git reset HEAD *.ipynb
+    id: unstage-ipynb
+    language: system
+    name: unstage-ipynb-maindir
+    pass_filenames: false
+  repo: local
+- hooks:
+  - entry: git reset HEAD **/*.ipynb
+    id: unstage-ipynb
+    language: system
+    name: unstage-ipynb-otherdirs
+    pass_filenames: false
+  repo: local
